@@ -7,7 +7,7 @@ import CQ from '../assets/CQ.png';
 import Karins from '../assets/Karins.png'
 import BCAT from '../assets/BCAT.png'
 
-const uxProjects = [
+const Projects = [
   {
     id: '1',
     title: 'BCAT - Body Composition Assessment Tool',
@@ -58,7 +58,7 @@ const uxProjects = [
   }
 ];
 
-export default uxProjects;
+export default Projects;
 
 
 

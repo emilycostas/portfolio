@@ -10,7 +10,7 @@ function Portfolio() {
         <div key={project.id} className="project-card">
           <div className="project-text">
             <h2>
-              <Link to={`/ux/${project.id}`}>{project.title}</Link>
+              <Link to={`/portfolio/${project.id}`}>{project.title}</Link>
             </h2>
             <p>{project.description}</p>
           </div>

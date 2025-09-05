@@ -27,7 +27,7 @@ function Navbar() {
 
       <ul id="primary-nav" className={`nav-links ${isOpen ? 'open' : ''}`}>
         <li><NavLink to="/" onClick={closeMenu}>Hjem</NavLink></li>
-        <li><NavLink to="/about" onClick={closeMenu}>Om</NavLink></li>
+        <li><NavLink to="/about" onClick={closeMenu}>Om meg</NavLink></li>
         <li><NavLink to="/portfolio" onClick={closeMenu}>Portefølje</NavLink></li>
         <li><NavLink to="/contact" onClick={closeMenu}>Kontakt</NavLink></li>
       </ul>

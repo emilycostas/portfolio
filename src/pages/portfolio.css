@@ -1,8 +1,8 @@
 .project-list {
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr; /* Mobilvennlig som standard */
-  padding-top: 150px;
+  grid-template-columns: 1fr;
+  padding-top: 100px;
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 1rem;

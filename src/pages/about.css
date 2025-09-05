@@ -1,0 +1,90 @@
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 1rem 2.5rem;     
+  box-sizing: border-box;
+  color: #1b2630;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.about h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.about-text p { margin: 0 0 1rem; }
+
+.about-text strong,
+.about-text em {
+  color: #d47637;
+  font-weight: 600;
+}
+
+.about-aside { position: static; }
+
+.about-images {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.about-images img {
+  width: 100%;
+  aspect-ratio: 16/9;     
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.about-caption {
+  font-size: 0.9rem;
+  color: #4a5a66;
+  margin-top: 0.25rem;
+}
+
+.about a {
+  color: #d47637;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,118,55,0.35);
+}
+.about a:hover { border-bottom-color: transparent; }
+
+@media (min-width: 768px) {
+  .about {
+    padding: 120px 2rem 4rem;   
+  }
+
+  .about > h1 {
+    font-size: 3rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+  }
+
+  .about-text {
+    font-size: 1.125rem;
+  }
+
+  .about-aside {
+    position: sticky;      
+    top: 96px;                 
+  }
+
+  .about-images img {
+    aspect-ratio: 4/3;       
+  }
+}
+
