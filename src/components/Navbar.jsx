@@ -1,41 +1,95 @@
-import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import portfolio from '../assets/portfolio.png';
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+const navLinkClass = ({ isActive }) =>
+  isActive ? 'nav-link active' : 'nav-link';
 
-  const toggleMenu = () => setIsOpen(prev => !prev);
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef(null);
+  const location = useLocation();
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
+  useEffect(() => {
+    closeMenu();
+
+  }, [location.pathname]);
+
+  useEffect(() => {
+    function onMouseDown(e) {
+      if (!isOpen) return;
+      if (!navRef.current) return;
+      if (!navRef.current.contains(e.target)) closeMenu();
+    }
+
+    document.addEventListener('mousedown', onMouseDown);
+    return () => document.removeEventListener('mousedown', onMouseDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    function onKeyDown(e) {
+      if (!isOpen) return;
+      if (e.key === 'Escape') closeMenu();
+    }
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
-    <nav className="navbar" role="navigation" aria-label="Hovedmeny">
-      <Link to="/" onClick={closeMenu} className="brand">
-        <img src={portfolio} alt="Figur av Emily" className="logo" />
+    <nav ref={navRef} className="navbar" role="navigation" aria-label="Hovedmeny">
+      <Link to="/" className="brand" aria-label="Gå til forsiden">
+        <img src={portfolio} alt="Logo" className="logo" />
       </Link>
 
       <button
+        type="button"
         className="hamburger"
-        onClick={toggleMenu}
-        aria-label="Åpne/lukk meny"
-        aria-expanded={isOpen}
         aria-controls="primary-nav"
+        aria-expanded={isOpen}
+        aria-label={isOpen ? 'Lukk meny' : 'Åpne meny'}
+        onClick={toggleMenu}
       >
-        ☰
+        <span aria-hidden="true">{isOpen ? '✕' : '☰'}</span>
       </button>
 
       <ul id="primary-nav" className={`nav-links ${isOpen ? 'open' : ''}`}>
-        <li><NavLink to="/" onClick={closeMenu}>Hjem</NavLink></li>
-        <li><NavLink to="/about" onClick={closeMenu}>Om meg</NavLink></li>
-        <li><NavLink to="/portfolio" onClick={closeMenu}>Portefølje</NavLink></li>
-        <li><NavLink to="/contact" onClick={closeMenu}>Kontakt</NavLink></li>
+        <li>
+          <NavLink to="/" className={navLinkClass}>
+            Hjem
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about" className={navLinkClass}>
+            Om meg
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/portfolio" className={navLinkClass}>
+            Portefølje
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact" className={navLinkClass}>
+            Kontakt
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
 }
 
-export default Navbar;
 
 
 

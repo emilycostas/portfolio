@@ -8,13 +8,9 @@ function Home() {
       <div className="image-wrapper">
         <img src={Emily_portfolio} alt="Emily" className="hero-image" />
         <div className="text-box">
-          <h2>Hei! Jeg er Emily</h2>
-          <p>
-            Jeg er 28 år, og har nylig fullført en bachelor i Informasjonssystemer
-            med fordypning i datasikkerhet og web. <br /><br />
-            Jeg liker godt å arbeide med design, brukeropplevelse,
-            universell utforming og gode løsninger.
-          </p>
+          <h2>Hei! Jeg heter Emily Constance</h2>
+          <p> Jeg er 28 år, og har fra tidligere en bachelor i psykologi, og har nylig fullført en bachelor i Informasjonssystemer med fordypning i datasikkerhet og web. <br /><br />
+          Jeg studerer nå Master i Applied Computer Science med fordypning i Interaction Design.</p>
           <Link to="/portfolio" className="cta-button">Se arbeid</Link>
         </div>
       </div>

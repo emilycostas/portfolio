@@ -2,28 +2,45 @@ import { Link } from 'react-router-dom';
 import Projects from '../assets/Projects';
 import './portfolio.css';
 
-function Portfolio() {
+export default function Portfolio() {
   return (
-    <section className="project-list">
-      <h1>Portefølje</h1>
-      {Projects.map((project) => (
-        <div key={project.id} className="project-card">
-          <div className="project-text">
-            <h2>
-              <Link to={`/portfolio/${project.id}`}>{project.title}</Link>
-            </h2>
-            <p>{project.description}</p>
-          </div>
-          <div className="project-image">
-            <img src={project.image} alt={project.title} />
-          </div>
-        </div>
+    <main className="page">
+      <section className="project-list">
+        <h1>Portefølje</h1>
 
-      ))}
-    </section>
+        <div className="project-grid" role="list">
+          {Projects.map((project) => (
+            <Link
+              key={project.id}
+              to={`/portfolio/${project.id}`}
+              className="project-card"
+              role="listitem"
+              aria-label={`Åpne prosjekt: ${project.title}`}
+            >
+              <div className="project-text">
+                <h2>{project.title}</h2>
+                <p>{project.description}</p>
+              </div>
+
+              <div className="project-image">
+                <img src={project.image} alt={project.title} loading="lazy" />
+              </div>
+
+              {Array.isArray(project.tech) && project.tech.length > 0 && (
+                <ul className="tech-list" aria-label="Teknologier">
+                  {project.tech.map((t) => (
+                    <li key={t} className="tech-pill">{t}</li>
+                  ))}
+                </ul>
+              )}
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
 
-export default Portfolio;
+
 
 
