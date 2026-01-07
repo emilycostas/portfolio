@@ -1,5 +1,7 @@
 import './about.css';
 import Emily_portfolio from '../assets/Emily_portfolio.jpg';
+import meg from '../assets/meg.jpg';
+import bachelorgruppe from '../assets/bachelorgruppe.jpg';
 
 export default function About() {
   return (
@@ -9,20 +11,15 @@ export default function About() {
       <div className="about-grid">
         <div className="about-text">
           <p>
-            Hei! Jeg heter Emily og er en frontend-utvikler med fokus på
-            <strong> design</strong>, <strong>brukervennlighet</strong> og
-            moderne webteknologier. Jeg brenner for universell utforming
-            og løsninger som faktisk hjelper folk.
+            Hei! Jeg heter Emily Constance og studerer for tiden Master i Applied Computer Science med fordypning i <strong> Interaction Design </strong>.
+             Jeg er en strukturert og kreativ person med erfaring innen psykologi, informasjonssystemer og nå interaksjonsdesign. Gjennom studiene og prosjekter har
+             jeg jobbet med alt fra konseptutvikling, visuell identitet og UI-design, til planlegging, strukturering og gjennomføring av prosjekter. Et eksempel er at min
+             tidligere bachelorgruppe og jeg er i gang med å fullføre appen vi hadde som prosjekt slik at denne faktisk kan tas i bruk av helsepersonell - det står mer om dette på BCAT-prosjektet. 
           </p>
-          <p>
-            Jeg har nylig fullført en bachelor i Informasjonssystemer med
-            fordypning i datasikkerhet og web. På fritiden liker jeg å utforske
-            typografi, mikrosamspill og designsystemer – og jeg trives best i
-            krysningspunktet mellom <em>UI/UX</em> og kode.
-          </p>
-          <p>
-            Under finner du noen bilder fra prosjekter og arbeidshverdagen min.
-            Ta gjerne kontakt hvis du vil samarbeide!
+          <p>Jeg har vært innom alle Adobe-programmene gjennom fag og bruker Figma mye i skole og i egne prosjekter. 
+             I prosjekter er jeg opptatt av god kommunikasjon og fremdrift, og har i studiet ofte tatt på meg en lederrolle i gruppene jeg har vært i. Jeg liker å jobbe strukturert, 
+             men samtidig kreativt. I denne porteføljen finnes en del av prosjektene jeg har jobbet med i skolesammenheng og noe individuelt. I alle prosjekter lagt ved har det vært hovedsakelig jeg som har jobbet med det visuelle.
+             Jeg er en kreativ person som liker å jobbe med alt innen design, brukervennlighet og universell utforming. 
           </p>
         </div>
 
@@ -30,7 +27,8 @@ export default function About() {
           <div className="about-images">
             <figure>
               <img src={Emily_portfolio} alt="Emily" className="hero-image" />
-              <figcaption className="about-caption">Skisser & prototyper</figcaption>
+              <img src={bachelorgruppe} alt="Bachelorgruppe" className="hero-image secondary" />
+              <figcaption className="about-caption"></figcaption>
             </figure>
           </div>
         </aside>

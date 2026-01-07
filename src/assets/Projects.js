@@ -92,9 +92,7 @@ const Projects = [
     { label: 'Bacheloroppgave', path: '/Home/pdf/Bachelor.pdf' }
   ],
     links: {
-      // github: 'https://github.com/...',
-      // live: 'https://...',
-      // figma: 'https://...'
+    
     }
   },
 
@@ -121,7 +119,7 @@ const Projects = [
       { label: 'Interaction Design - Paper', path: '/Home/pdf/InteractionDesign_Tamagolfi.pdf' }
   ],
     links: {
-      live: 'https://artemissoneterapi.no/'
+     
     }
   },
 
@@ -177,7 +175,7 @@ const Projects = [
     { label: 'Investor Proposal', path: '/Home/pdf/Investor_proposal_LOMA.pdf' },
   ],
     links: {
-      // figma: 'https://...'
+     
     }
   },
 
@@ -201,10 +199,10 @@ const Projects = [
       'Tilpasset uttrykk til ulike flater'
     ],
     pdfs: [
-    { label: 'Fargeprofil og typografi', path: '/Home/pdf/Fargeprofil_typografi.pdf' },
-    { label: 'Cosmic Brosjyre', path: '/Home/pdf/CosmicBrosjyre.pdf' },
-    { label: 'Grafisk Profilbåndbok', path: '/Home/pdf/GrafiskProfilhåndbok.pdf' },
-    { label: 'Festivalposter', path: '/Home/pdf/Festivalposter.pdf' },
+    { label: 'Fargeprofil og typografi', path: '/pdf/Fargeprofil_typografi.pdf' },
+    { label: 'Cosmic Brosjyre', path: '/pdf/CosmicBrosjyre.pdf' },
+    { label: 'Grafisk Profilbåndbok', path: '/pdf/GrafiskProfilhåndbok.pdf' },
+    { label: 'Festivalposter', path: '/pdf/Festivalposter.pdf' },
   ],
     links: {}
   },

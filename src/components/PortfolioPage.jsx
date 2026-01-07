@@ -48,7 +48,7 @@ export default function PortfolioPage() {
 
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [lightboxIndex, images.length]);
 
   if (!project) {
@@ -113,7 +113,6 @@ export default function PortfolioPage() {
           )}
         </header>
 
-        {/* GALLERI (som før) */}
         {images.length > 0 && (
           <section className="gallery" aria-label="Bilder">
             {images.map((src, idx) => (
@@ -148,7 +147,6 @@ export default function PortfolioPage() {
           </section>
         )}
 
-        {/* PDF-seksjon (ny, men uten å endre galleriet) */}
         {hasPdfs && (
           <section className="content">
             <h2>Dokumenter</h2>
@@ -180,7 +178,6 @@ export default function PortfolioPage() {
         )}
       </article>
 
-      {/* LIGHTBOX (som før) */}
       {lightboxIndex !== null && images[lightboxIndex] && (
         <div className="lightbox" role="dialog" aria-modal="true" onMouseDown={closeLightbox}>
           <div className="lightbox-inner" onMouseDown={(e) => e.stopPropagation()}>
