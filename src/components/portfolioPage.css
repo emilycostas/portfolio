@@ -84,9 +84,20 @@
   outline-offset: 2px;
 }
 
+/* =========================
+   GALLERI (RESPONSIVT GRID)
+   ========================= */
+
+/* Juster disse to for “størrelsefølelse”:
+   - min bredde pr bilde: 240/260/300
+   - row-høyde: 220/240/280
+*/
 .gallery {
+  --min: 260px;
+  --row: 240px;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
   gap: 1rem;
   margin: 1.5rem 0;
 }
@@ -95,10 +106,33 @@
   margin: 0;
 }
 
+/* Gjør hvert bilde til en “tile” med lik høyde,
+   men med mulighet for at portrett-screenshots blir større på mobil (se media query under). */
+.gallery-item button {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
 .gallery img {
   width: 100%;
-  height: 220px;         
-  object-fit: contain;    
+  height: var(--row);
+  display: block;
+  padding: 0.6rem;
+
+  object-fit: contain;  /* best for UI / logo / screenshots */
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Mobil: gjør tiles litt høyere så mobil-screenshots blir lesbare */
+@media (max-width: 600px) {
+  .gallery {
+    --min: 170px; /* flere per rad hvis du har plass */
+    --row: 260px; /* viktig: større høyde på mobil */
+  }
 }
 
 .content {
@@ -125,9 +159,75 @@
   line-height: 1.7;
 }
 
-@media (min-width: 900px) {
-  .gallery {
-    grid-template-columns: 1fr 1fr;
-  }
+/* =========================
+   LIGHTBOX (klikk for større)
+   ========================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+  padding: 1rem;
 }
+
+.lightbox-inner {
+  width: min(1100px, 96vw);
+  height: min(80vh, 900px);
+  background: #111;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+}
+
+.lightbox-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 12px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-weight: 700;
+}
+
+.lightbox-close {
+  right: 12px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.75rem 0.85rem;
+}
+
+.lightbox-prev {
+  left: 12px;
+}
+
+.lightbox-next {
+  right: 12px;
+}
+
+.lightbox-close:focus-visible,
+.lightbox-prev:focus-visible,
+.lightbox-next:focus-visible {
+  outline: 3px solid rgba(212, 118, 55, 0.65);
+  outline-offset: 2px;
+}
+
 

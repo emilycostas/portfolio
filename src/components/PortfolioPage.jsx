@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Projects from '../assets/Projects';
 import './portfolioPage.css';
@@ -7,10 +7,49 @@ export default function PortfolioPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const BASE = import.meta.env.BASE_URL;
+
   const project = useMemo(
     () => Projects.find((p) => String(p.id) === String(id)),
     [id]
   );
+
+  const images = useMemo(() => {
+    if (!project) return [];
+    const list =
+      Array.isArray(project.images) && project.images.length > 0
+        ? project.images
+        : project.image
+          ? [project.image]
+          : [];
+    return list;
+  }, [project]);
+
+  const openLightbox = (index) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+
+  const showPrev = () => {
+    setLightboxIndex((i) => (i === 0 ? images.length - 1 : i - 1));
+  };
+
+  const showNext = () => {
+    setLightboxIndex((i) => (i === images.length - 1 ? 0 : i + 1));
+  };
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    function onKeyDown(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    }
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lightboxIndex, images.length]);
 
   if (!project) {
     return (
@@ -26,12 +65,12 @@ export default function PortfolioPage() {
     );
   }
 
-  const images =
-    Array.isArray(project.images) && project.images.length > 0
-      ? project.images
-      : project.image
-        ? [project.image]
-        : [];
+  const hasLinks =
+    project.links?.website ||
+    project.links?.github ||
+    project.links?.figma;
+
+  const hasPdfs = Array.isArray(project.pdfs) && project.pdfs.length > 0;
 
   return (
     <main className="page">
@@ -53,11 +92,11 @@ export default function PortfolioPage() {
             </ul>
           )}
 
-          {(project.links?.live || project.links?.github || project.links?.figma) && (
+          {hasLinks && (
             <div className="project-links" aria-label="Lenker">
-              {project.links?.live && (
-                <a className="link-btn" href={project.links.live} target="_blank" rel="noreferrer">
-                  Live
+              {project.links?.website && (
+                <a className="link-btn" href={project.links.website} target="_blank" rel="noreferrer">
+                  Besøk nettsiden
                 </a>
               )}
               {project.links?.github && (
@@ -67,18 +106,26 @@ export default function PortfolioPage() {
               )}
               {project.links?.figma && (
                 <a className="link-btn" href={project.links.figma} target="_blank" rel="noreferrer">
-                  Figma
+                  Se Figma
                 </a>
               )}
             </div>
           )}
         </header>
 
+        {/* GALLERI (som før) */}
         {images.length > 0 && (
           <section className="gallery" aria-label="Bilder">
             {images.map((src, idx) => (
               <figure key={`${src}-${idx}`} className="gallery-item">
-                <img src={src} alt={`${project.title} – bilde ${idx + 1}`} loading="lazy" />
+                <button
+                  type="button"
+                  className="gallery-button"
+                  onClick={() => openLightbox(idx)}
+                  aria-label={`Åpne bilde ${idx + 1}`}
+                >
+                  <img src={src} alt={`${project.title} – bilde ${idx + 1}`} loading="lazy" />
+                </button>
               </figure>
             ))}
           </section>
@@ -94,11 +141,30 @@ export default function PortfolioPage() {
         {project.longDescription && (
           <section className="content">
             <h2>Detaljer</h2>
-            {/* Tillater at longDescription kan være string eller array av avsnitt */}
             {Array.isArray(project.longDescription)
               ? project.longDescription.map((p, i) => <p key={i}>{p}</p>)
               : <p>{project.longDescription}</p>
             }
+          </section>
+        )}
+
+        {/* PDF-seksjon (ny, men uten å endre galleriet) */}
+        {hasPdfs && (
+          <section className="content">
+            <h2>Dokumenter</h2>
+            <div className="project-links" aria-label="PDF-dokumenter">
+              {project.pdfs.map((pdf) => (
+                <a
+                  key={pdf.file || pdf.path}
+                  className="link-btn"
+                  href={pdf.file ? `${BASE}pdf/${pdf.file}` : pdf.path}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {pdf.label || 'Åpne PDF'}
+                </a>
+              ))}
+            </div>
           </section>
         )}
 
@@ -113,8 +179,34 @@ export default function PortfolioPage() {
           </section>
         )}
       </article>
+
+      {/* LIGHTBOX (som før) */}
+      {lightboxIndex !== null && images[lightboxIndex] && (
+        <div className="lightbox" role="dialog" aria-modal="true" onMouseDown={closeLightbox}>
+          <div className="lightbox-inner" onMouseDown={(e) => e.stopPropagation()}>
+            <img className="lightbox-img" src={images[lightboxIndex]} alt="" />
+
+            {images.length > 1 && (
+              <>
+                <button className="lightbox-prev" type="button" onClick={showPrev} aria-label="Forrige bilde">
+                  ‹
+                </button>
+                <button className="lightbox-next" type="button" onClick={showNext} aria-label="Neste bilde">
+                  ›
+                </button>
+              </>
+            )}
+
+            <button className="lightbox-close" type="button" onClick={closeLightbox} aria-label="Lukk">
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
+
+
 
 
