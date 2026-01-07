@@ -88,8 +88,8 @@ const Projects = [
       'Fokus på brukervennlighet og tydelig flyt'
     ],
     pdfs: [
-    { label: 'Poster BCAT', path: '/Home/pdf/Poster_BCAT.pdf' },
-    { label: 'Bacheloroppgave', path: '/Home/pdf/Bachelor.pdf' }
+    { label: 'Poster BCAT', path: '/pdf/Poster_BCAT.pdf' },
+    { label: 'Bacheloroppgave', path: '/pdf/Bachelor.pdf' }
   ],
     links: {
     
@@ -116,7 +116,7 @@ const Projects = [
       '3D-printing'
     ],
     pdfs: [
-      { label: 'Interaction Design - Paper', path: '/Home/pdf/InteractionDesign_Tamagolfi.pdf' }
+      { label: 'Interaction Design - Paper', path: '/pdf/InteractionDesign_Tamagolfi.pdf' }
   ],
     links: {
      
@@ -172,7 +172,7 @@ const Projects = [
       'Fokus på tydelig user journey'
     ],
     pdfs: [
-    { label: 'Investor Proposal', path: '/Home/pdf/Investor_proposal_LOMA.pdf' },
+    { label: 'Investor Proposal', path: '/pdf/Investor_proposal_LOMA.pdf' },
   ],
     links: {
      
@@ -298,7 +298,7 @@ const Projects = [
       'Utviklet innhold til spill'
     ],
     pdfs: [
-    { label: 'CodeQuest Rapport', path: '/Home/pdf/CodeQuest.pdf' },
+    { label: 'CodeQuest Rapport', path: '/pdf/CodeQuest.pdf' },
   ],
     links: {}
   }

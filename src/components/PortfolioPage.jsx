@@ -48,8 +48,34 @@ export default function PortfolioPage() {
 
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-
   }, [lightboxIndex, images.length]);
+
+  function resolvePdfHref(pdf) {
+    if (pdf?.file) {
+      return `${BASE}pdf/${pdf.file}`;
+    }
+
+    const raw = pdf?.path;
+    if (!raw) return '#';
+
+    if (/^https?:\/\//i.test(raw)) return raw;
+
+    const normalized = raw.replace(/\\/g, '/');
+
+    if (normalized.startsWith('/pdf/')) {
+      return `${BASE}${normalized.slice(1)}`;
+    }
+
+    if (normalized.startsWith('pdf/')) {
+      return `${BASE}${normalized}`;
+    }
+
+    if (normalized.startsWith('/')) {
+      return normalized;
+    }
+
+    return `${BASE}${normalized}`;
+  }
 
   if (!project) {
     return (
@@ -153,9 +179,9 @@ export default function PortfolioPage() {
             <div className="project-links" aria-label="PDF-dokumenter">
               {project.pdfs.map((pdf) => (
                 <a
-                  key={pdf.file || pdf.path}
+                  key={pdf.file || pdf.path || pdf.label}
                   className="link-btn"
-                  href={pdf.file ? `${BASE}pdf/${pdf.file}` : pdf.path}
+                  href={resolvePdfHref(pdf)}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -203,6 +229,7 @@ export default function PortfolioPage() {
     </main>
   );
 }
+
 
 
 
