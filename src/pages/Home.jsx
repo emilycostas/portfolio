@@ -1,4 +1,4 @@
-import './home-temp.css';
+import './home.css';
 import { Link } from 'react-router-dom';
 import Emily_portfolio from '../assets/Emily_portfolio.jpg';
 
