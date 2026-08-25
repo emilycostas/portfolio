@@ -12,7 +12,7 @@ import spørsmål_skjermbilde from '../assets/spørsmål_skjermbilde.jpg';
 import Storyboard_endelig from '../assets/Storyboard_endelig.png';
 import vp from '../assets/vp.png';
 import LFP_medflyt from '../assets/LFP_medflyt.png';
-import hjem_applikasjon from '../assets/hjem_applikasjon.jpg';
+import Hjem_applikasjon from '../assets/hjem_applikasjon.jpg';
 import utvikling_ikoner from '../assets/utvikling_ikoner.png';
 import skjermbilde_nettside from '../assets/skjermbilde_nettside.png';
 import skjermbilde_artemis2 from '../assets/skjermbilde_artemis2.png';
