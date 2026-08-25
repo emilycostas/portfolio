@@ -12,7 +12,7 @@ import spørsmål_skjermbilde from '../assets/spørsmål_skjermbilde.jpg';
 import Storyboard_endelig from '../assets/Storyboard_endelig.png';
 import vp from '../assets/vp.png';
 import LFP_medflyt from '../assets/LFP_medflyt.png';
-import Hjem_applikasjon from '../assets/hjem_applikasjon.jpg';
+import Hjem_applikasjon from '../assets/Hjem_applikasjon.jpg';
 import utvikling_ikoner from '../assets/utvikling_ikoner.png';
 import skjermbilde_nettside from '../assets/skjermbilde_nettside.png';
 import skjermbilde_artemis2 from '../assets/skjermbilde_artemis2.png';
@@ -85,7 +85,7 @@ const Projects = [
       'Prosjektet innebar å kartlegge målgruppe, lage storyboard for å visualisere behov og utfordringer, benchmarking av andre swipe- og beslutningstre-apper, utarbeide kravspesifikasjon, utvikle innhold, struktur og visuell utforming av beslutningstreet, utvikling av piktogrammer, utvikle visuell profil, samt bruke verktøy til å undersøke tilgjengelighet og kontraster, utvikle logo og appikon, low-fidelity og high-fidelity prototype, og til slutt utvikle selve React Native applikasjonen.'
     ],
     images: [
-      Logo_BCAT, BCAT, LFP_medflyt, vp, hjem_applikasjon, retningslinjer_applikasjon, spørsmål_skjermbilde, Storyboard_endelig, utvikling_ikoner
+      Logo_BCAT, BCAT, LFP_medflyt, vp, Hjem_applikasjon, retningslinjer_applikasjon, spørsmål_skjermbilde, Storyboard_endelig, utvikling_ikoner
     ],
     tech: ['React Native', 'Grafisk design', 'Beslutningstre'],
     highlights: [
