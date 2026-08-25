@@ -17,24 +17,27 @@ export default function PortfolioPage() {
 
   const images = useMemo(() => {
     if (!project) return [];
-    const list =
-      Array.isArray(project.images) && project.images.length > 0
-        ? project.images
-        : project.image
-          ? [project.image]
-          : [];
-    return list;
+
+    return Array.isArray(project.images) && project.images.length > 0
+      ? project.images
+      : project.image
+        ? [project.image]
+        : [];
   }, [project]);
 
   const openLightbox = (index) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
 
   const showPrev = () => {
-    setLightboxIndex((i) => (i === 0 ? images.length - 1 : i - 1));
+    setLightboxIndex((i) =>
+      i === 0 ? images.length - 1 : i - 1
+    );
   };
 
   const showNext = () => {
-    setLightboxIndex((i) => (i === images.length - 1 ? 0 : i + 1));
+    setLightboxIndex((i) =>
+      i === images.length - 1 ? 0 : i + 1
+    );
   };
 
   useEffect(() => {
@@ -47,7 +50,10 @@ export default function PortfolioPage() {
     }
 
     document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+    };
   }, [lightboxIndex, images.length]);
 
   function resolvePdfHref(pdf) {
@@ -56,9 +62,12 @@ export default function PortfolioPage() {
     }
 
     const raw = pdf?.path;
+
     if (!raw) return '#';
 
-    if (/^https?:\/\//i.test(raw)) return raw;
+    if (/^https?:\/\//i.test(raw)) {
+      return raw;
+    }
 
     const normalized = raw.replace(/\\/g, '/');
 
@@ -81,9 +90,14 @@ export default function PortfolioPage() {
     return (
       <main className="page">
         <section className="project-detail">
-          <button className="back" type="button" onClick={() => navigate(-1)}>
+          <button
+            className="back"
+            type="button"
+            onClick={() => navigate(-1)}
+          >
             ← Tilbake
           </button>
+
           <h1>Prosjekt ikke funnet</h1>
           <p>Prosjektet du prøvde å åpne finnes ikke.</p>
         </section>
@@ -93,63 +107,129 @@ export default function PortfolioPage() {
 
   const hasLinks =
     project.links?.website ||
+    project.links?.app ||
     project.links?.github ||
     project.links?.figma;
 
-  const hasPdfs = Array.isArray(project.pdfs) && project.pdfs.length > 0;
+  const hasPdfs =
+    Array.isArray(project.pdfs) &&
+    project.pdfs.length > 0;
 
   return (
     <main className="page">
       <article className="project-detail">
-        <button className="back" type="button" onClick={() => navigate(-1)}>
+
+        <button
+          className="back"
+          type="button"
+          onClick={() => navigate(-1)}
+        >
           ← Tilbake
         </button>
 
         <header className="project-header">
           <h1>{project.title}</h1>
 
-          {project.subtitle && <p className="subtitle">{project.subtitle}</p>}
-
-          {Array.isArray(project.tech) && project.tech.length > 0 && (
-            <ul className="tech-list" aria-label="Teknologier">
-              {project.tech.map((t) => (
-                <li key={t} className="tech-pill">{t}</li>
-              ))}
-            </ul>
+          {project.subtitle && (
+            <p className="subtitle">
+              {project.subtitle}
+            </p>
           )}
 
+          {Array.isArray(project.tech) &&
+            project.tech.length > 0 && (
+              <ul
+                className="tech-list"
+                aria-label="Teknologier"
+              >
+                {project.tech.map((tech) => (
+                  <li
+                    key={tech}
+                    className="tech-pill"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            )}
+
           {hasLinks && (
-            <div className="project-links" aria-label="Lenker">
+            <div
+              className="project-links"
+              aria-label="Lenker"
+            >
+
               {project.links?.website && (
-                <a className="link-btn" href={project.links.website} target="_blank" rel="noreferrer">
+                <a
+                  className="link-btn"
+                  href={project.links.website}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Besøk nettsiden
                 </a>
               )}
+
+              {project.links?.app && (
+                <a
+                  className="link-btn"
+                  href={project.links.app}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Se appen
+                </a>
+              )}
+
               {project.links?.github && (
-                <a className="link-btn" href={project.links.github} target="_blank" rel="noreferrer">
+                <a
+                  className="link-btn"
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   GitHub
                 </a>
               )}
+
               {project.links?.figma && (
-                <a className="link-btn" href={project.links.figma} target="_blank" rel="noreferrer">
+                <a
+                  className="link-btn"
+                  href={project.links.figma}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Se Figma
                 </a>
               )}
+
             </div>
           )}
         </header>
 
         {images.length > 0 && (
-          <section className="gallery" aria-label="Bilder">
-            {images.map((src, idx) => (
-              <figure key={`${src}-${idx}`} className="gallery-item">
+          <section
+            className="gallery"
+            aria-label="Bilder"
+          >
+            {images.map((src, index) => (
+              <figure
+                key={`${src}-${index}`}
+                className="gallery-item"
+              >
                 <button
                   type="button"
                   className="gallery-button"
-                  onClick={() => openLightbox(idx)}
-                  aria-label={`Åpne bilde ${idx + 1}`}
+                  onClick={() =>
+                    openLightbox(index)
+                  }
+                  aria-label={`Åpne bilde ${index + 1}`}
                 >
-                  <img src={src} alt={`${project.title} – bilde ${idx + 1}`} loading="lazy" />
+                  <img
+                    src={src}
+                    alt={`${project.title} – bilde ${index + 1}`}
+                    loading="lazy"
+                  />
                 </button>
               </figure>
             ))}
@@ -159,27 +239,49 @@ export default function PortfolioPage() {
         {project.description && (
           <section className="content">
             <h2>Om prosjektet</h2>
-            <p className="lead">{project.description}</p>
+            <p className="lead">
+              {project.description}
+            </p>
           </section>
         )}
 
         {project.longDescription && (
           <section className="content">
             <h2>Detaljer</h2>
-            {Array.isArray(project.longDescription)
-              ? project.longDescription.map((p, i) => <p key={i}>{p}</p>)
-              : <p>{project.longDescription}</p>
-            }
+
+            {Array.isArray(
+              project.longDescription
+            )
+              ? project.longDescription.map(
+                  (paragraph, index) => (
+                    <p key={index}>
+                      {paragraph}
+                    </p>
+                  )
+                )
+              : (
+                <p>
+                  {project.longDescription}
+                </p>
+              )}
           </section>
         )}
 
         {hasPdfs && (
           <section className="content">
             <h2>Dokumenter</h2>
-            <div className="project-links" aria-label="PDF-dokumenter">
+
+            <div
+              className="project-links"
+              aria-label="PDF-dokumenter"
+            >
               {project.pdfs.map((pdf) => (
                 <a
-                  key={pdf.file || pdf.path || pdf.label}
+                  key={
+                    pdf.file ||
+                    pdf.path ||
+                    pdf.label
+                  }
                   className="link-btn"
                   href={resolvePdfHref(pdf)}
                   target="_blank"
@@ -192,44 +294,82 @@ export default function PortfolioPage() {
           </section>
         )}
 
-        {Array.isArray(project.highlights) && project.highlights.length > 0 && (
-          <section className="content">
-            <h2>Høydepunkter</h2>
-            <ul className="bullets">
-              {project.highlights.map((h) => (
-                <li key={h}>{h}</li>
-              ))}
-            </ul>
-          </section>
-        )}
+        {Array.isArray(project.highlights) &&
+          project.highlights.length > 0 && (
+            <section className="content">
+              <h2>Høydepunkter</h2>
+
+              <ul className="bullets">
+                {project.highlights.map(
+                  (highlight) => (
+                    <li key={highlight}>
+                      {highlight}
+                    </li>
+                  )
+                )}
+              </ul>
+            </section>
+          )}
+
       </article>
 
-      {lightboxIndex !== null && images[lightboxIndex] && (
-        <div className="lightbox" role="dialog" aria-modal="true" onMouseDown={closeLightbox}>
-          <div className="lightbox-inner" onMouseDown={(e) => e.stopPropagation()}>
-            <img className="lightbox-img" src={images[lightboxIndex]} alt="" />
+      {lightboxIndex !== null &&
+        images[lightboxIndex] && (
+          <div
+            className="lightbox"
+            role="dialog"
+            aria-modal="true"
+            onMouseDown={closeLightbox}
+          >
+            <div
+              className="lightbox-inner"
+              onMouseDown={(e) =>
+                e.stopPropagation()
+              }
+            >
+              <img
+                className="lightbox-img"
+                src={images[lightboxIndex]}
+                alt={`${project.title} – stort bilde`}
+              />
 
-            {images.length > 1 && (
-              <>
-                <button className="lightbox-prev" type="button" onClick={showPrev} aria-label="Forrige bilde">
-                  ‹
-                </button>
-                <button className="lightbox-next" type="button" onClick={showNext} aria-label="Neste bilde">
-                  ›
-                </button>
-              </>
-            )}
+              {images.length > 1 && (
+                <>
+                  <button
+                    className="lightbox-prev"
+                    type="button"
+                    onClick={showPrev}
+                    aria-label="Forrige bilde"
+                  >
+                    ‹
+                  </button>
 
-            <button className="lightbox-close" type="button" onClick={closeLightbox} aria-label="Lukk">
-              ✕
-            </button>
+                  <button
+                    className="lightbox-next"
+                    type="button"
+                    onClick={showNext}
+                    aria-label="Neste bilde"
+                  >
+                    ›
+                  </button>
+                </>
+              )}
+
+              <button
+                className="lightbox-close"
+                type="button"
+                onClick={closeLightbox}
+                aria-label="Lukk"
+              >
+                ✕
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+
     </main>
   );
 }
-
 
 
 
