@@ -59,6 +59,13 @@ import prototypeT2 from '../assets/prototypeT2.png';
 import digital_prototype_cropped from '../assets/digital_prototype_cropped.png';
 import LowFi_Figma from '../assets/LowFi_Figma.png';
 import prototyper_physical3 from '../assets/prototyper_physical3.png';
+import Karins_flyer_vscode from '../assets/Karins_flyer_vscode';
+import Maxbo_Annonse_Lekestativ_Facebook from '../assets/Maxbo_Annonse_Lekestativ_Facebook';
+import Maxbo_Annonse from '../assets/Maxbo_Annonse';
+import Maxbo_flyer from '../assets/Maxbo_flyer';
+import Maxbo_Plakat from '../assets/Maxbo_Plakat';
+import Maxbo_Facebook from '../assets/Maxbo_Facebook';
+import Maxbo_Nygårdskrysset_logo from '../assets/Maxbo_Nygårdskrysset_logo';
 
 
 
@@ -98,6 +105,32 @@ const Projects = [
 
   {
     id: '2',
+    title: 'Maxbo Nygårdskrysset',
+    description: 'Annonser og kampanjemateriell',
+    image: Maxbo_Nygårdskrysset_logo,
+
+    longDescription: [
+      'For Maxbo har jeg laget innhold for Facebook og Instagram som følger Maxbo sin grafiske profil.',
+      'Jeg har brukt Figma, og fulgt den grafiske håndboken som Maxbo har tilsendt meg for å sikre at jeg ikke lager noe som passer inn med merkevaren til Maxbo.'
+    ],
+    images: [
+      Maxbo_Annonse, Maxbo_Annonse_Lekestativ_Facebook, Maxbo_flyer, Maxbo_Plakat, Maxbo_Facebook,
+    ],
+    tech: ['Annonser', 'Kampanjemateriell'],
+    highlights: [
+      'Facebook annonser',
+      'Plakater til butikk',
+      'Flyers'
+    ],
+    pdfs: [
+  ],
+    links: {
+     
+    }
+  },
+
+  {
+    id: '3',
     title: 'Tamagolfi',
     description: 'Fysisk prototype av Disc Golf teller',
     image: prototypeT2,
@@ -125,7 +158,7 @@ const Projects = [
 
 
   {
-    id: '3',
+    id: '4',
     title: 'Artemis Soneterapi & Øreakupunktur',
     description: 'Wordpress-nettside og logo for bedrift',
     image: ArtemisLogo,
@@ -153,7 +186,7 @@ const Projects = [
   },
 
   {
-    id: '4',
+    id: '5',
     title: 'LOMA – Lokal Mat app',
     description: 'Prosjekteksamen i Prosjektledelse. Logo, wireframes, VP, Scope, Gantt, PERT, kravspesifikasjon, mm.',
     image: LOMA,
@@ -180,7 +213,7 @@ const Projects = [
   },
 
   {
-    id: '5',
+    id: '6',
     title: 'Cosmic Soul & Funk Festival',
     description: 'Prosjekteksamen i Grafisk design. Fargeprofil, logo, grafiske elementer',
     image: Cosmic,
@@ -208,7 +241,7 @@ const Projects = [
   },
 
   {
-    id: '6',
+    id: '8',
     title: 'Maanesten',
     description:
       'Prosjekteksamen i Digital Markedsføring. Landingssider og ads for smykkemerket Maanesten',
@@ -233,7 +266,7 @@ const Projects = [
   },
 
   {
-    id: '7',
+    id: '9',
     title: 'Nygaardsgata Café & Bistro',
     description: 'Logo, menyer, meta-innlegg, mm.',
     image: NCB,
@@ -256,7 +289,7 @@ const Projects = [
   },
 
   {
-    id: '8',
+    id: '10',
     title: 'Karins Hjemmebakst & Catering',
     description: 'Logo, menyer, skilt',
     image: Karins,
@@ -265,7 +298,7 @@ const Projects = [
       'For Karins Hjemmebakst & Catering har jeg laget logoer, skrevet skilt, menyer til ulike eventer og til kakebua på Skjærhalden. Dette er tidligere eier av Nygaardsgata Café & Bistro.'
     ],
     images: [
-      Karins, KarinsBua, KarinsMeny, KarinsSkilt, KarinsSkilt2, karinsBuaSkilt
+      Karins, KarinsBua, KarinsMeny, KarinsSkilt, KarinsSkilt2, karinsBuaSkilt, Karins_flyer_vscode
     ],
     tech: ['Grafisk design'],
     highlights: [
@@ -279,7 +312,7 @@ const Projects = [
   },
 
   {
-    id: '9',
+    id: '11',
     title: 'CQ - CodeQuest',
     description: 'Prosjekteksamen i UI Designprosjekt (brettspill). Logo, spillbrett, spillkort',
     image: CQ,
