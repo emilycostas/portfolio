@@ -99,7 +99,7 @@ const Projects = [
     { label: 'Bacheloroppgave', path: '/pdf/Bachelor.pdf' }
   ],
     links: {
-    
+      live: 'https://play.google.com/store/apps/details?id=no.bcat.decisiontree'
     }
   },
 
