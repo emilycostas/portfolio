@@ -181,7 +181,7 @@ const Projects = [
   
   ],
     links: {
-      website: 'https://artemissoneterapi.no/',
+      //website: 'https://artemissoneterapi.no/',
     }
   },
 
