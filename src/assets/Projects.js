@@ -100,9 +100,6 @@ const Projects = [
   ],
     links: {
       app: 'https://play.google.com/store/apps/details?id=no.bcat.decisiontree',
-      website: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
     }
   },
 
@@ -128,10 +125,7 @@ const Projects = [
     pdfs: [
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
+
     }
   },
 
@@ -158,10 +152,7 @@ const Projects = [
       { label: 'Interaction Design - Paper', path: '/pdf/InteractionDesign_Tamagolfi.pdf' }
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
+
     }
   },
 
@@ -191,9 +182,6 @@ const Projects = [
   ],
     links: {
       website: 'https://artemissoneterapi.no/',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
     }
   },
 
@@ -220,10 +208,6 @@ const Projects = [
     { label: 'Investor Proposal', path: '/pdf/Investor_proposal_LOMA.pdf' },
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
     }
   },
 
@@ -253,10 +237,6 @@ const Projects = [
     { label: 'Festivalposter', path: '/pdf/Festivalposter.pdf' },
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
     }
   },
 
@@ -283,10 +263,6 @@ const Projects = [
     pdfs: [
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
     }
   },
 
@@ -311,10 +287,7 @@ const Projects = [
     pdfs: [
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
+
     }
   },
 
@@ -339,10 +312,7 @@ const Projects = [
     pdfs: [
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
+
     }
   },
 
@@ -369,10 +339,7 @@ const Projects = [
     { label: 'CodeQuest Rapport', path: '/pdf/CodeQuest.pdf' },
   ],
     links: {
-      website: 'https://...',
-      app: 'https://...',
-      github: 'https://...',
-      figma: 'https://...'
+
     }
   }
 ];
