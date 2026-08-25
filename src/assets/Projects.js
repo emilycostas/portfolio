@@ -59,13 +59,13 @@ import prototypeT2 from '../assets/prototypeT2.png';
 import digital_prototype_cropped from '../assets/digital_prototype_cropped.png';
 import LowFi_Figma from '../assets/LowFi_Figma.png';
 import prototyper_physical3 from '../assets/prototyper_physical3.png';
-import Karins_flyer_vscode from '../assets/Karins_flyer_vscode';
-import Maxbo_Annonse_Lekestativ_Facebook from '../assets/Maxbo_Annonse_Lekestativ_Facebook';
-import Maxbo_Annonse from '../assets/Maxbo_Annonse';
-import Maxbo_flyer from '../assets/Maxbo_flyer';
-import Maxbo_Plakat from '../assets/Maxbo_Plakat';
-import Maxbo_Facebook from '../assets/Maxbo_Facebook';
-import Maxbo_Nygårdskrysset_logo from '../assets/Maxbo_Nygårdskrysset_logo';
+import Karins_flyer_vscode from '../assets/Karins_flyer_vscode.png';
+import Maxbo_Annonse_Lekestativ_Facebook from '../assets/Maxbo_Annonse_Lekestativ_Facebook.png';
+import Maxbo_Annonse from '../assets/Maxbo_Annonse.png';
+import Maxbo_flyer from '../assets/Maxbo_flyer.png';
+import Maxbo_Plakat from '../assets/Maxbo_Plakat.png';
+import Maxbo_Facebook from '../assets/Maxbo_Facebook.png';
+import Maxbo_Nygårdskrysset_logo from '../assets/Maxbo_Nygårdskrysset_logo.png';
 
 
 
